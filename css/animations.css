@@ -1,0 +1,368 @@
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animations for profile and tech icons */
+@keyframes morphing {
+    0% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    25% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+
+    50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+
+    75% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
+
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+}
+
+/* Additional animations for profile section */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.shape-1 {
+    animation: rotate 25s linear infinite;
+}
+
+.shape-2 {
+    animation: rotate 30s linear infinite reverse;
+}
+
+/* Animation Classes */
+.animate-up {
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.animate-left {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-right {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+    animation-fill-mode: forwards;
+}
+
+.hero-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+.profile-image {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.4s forwards, morphing 8s ease-in-out infinite 0.4s;
+}
+
+.profile-image:hover img {
+    transform: scale(1.05);
+}
+
+.profile-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rotate 30s linear infinite;
+}
+
+.profile-frame {
+    animation: fadeIn 1s ease forwards, slideUp 1s ease forwards;
+}
+
+.profile-bg {
+    animation: fadeIn 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.profile-stats {
+    animation: fadeIn 1s ease 0.6s forwards, slideUp 1s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.tech-icon {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards, float 4s ease-in-out infinite;
+}
+
+.tech-icon:nth-child(1) {
+    animation-delay: 0.8s, 0s;
+}
+
+.tech-icon:nth-child(2) {
+    animation-delay: 1s, 1s;
+}
+
+.tech-icon:nth-child(3) {
+    animation-delay: 1.2s, 0.5s;
+}
+
+.tech-icon:nth-child(4) {
+    animation-delay: 1.4s, 1.5s;
+}
+
+.tech-icon:nth-child(5) {
+    animation-delay: 1.6s, 0.8s;
+}
+
+.icon-html {
+    animation-delay: 0.6s, 0.6s;
+}
+
+.icon-css {
+    animation-delay: 0.8s, 0.8s;
+}
+
+.icon-js {
+    animation-delay: 1s, 1s;
+}
+
+.icon-react {
+    animation-delay: 1.2s, 1.2s;
+}
+
+.icon-node {
+    animation-delay: 1.4s, 1.4s;
+}
+
+.subtitle,
+h1.display-4,
+.typed-text,
+.lead,
+.hero-buttons,
+.social-icons {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards, slideUp 1s ease forwards;
+}
+
+.hero-content .subtitle,
+.hero-content h1,
+.hero-content h2,
+.hero-content p,
+.hero-content .hero-cta,
+.hero-content .social-links {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+h1.display-4 {
+    animation-delay: 0.2s;
+}
+
+.hero-content h1 {
+    animation-delay: 0.2s;
+}
+
+.typed-text {
+    animation-delay: 0.4s;
+}
+
+.hero-content h2 {
+    animation-delay: 0.4s;
+}
+
+.lead {
+    animation-delay: 0.6s;
+}
+
+.hero-content p {
+    animation-delay: 0.6s;
+}
+
+.hero-buttons {
+    animation-delay: 0.8s;
+}
+
+.hero-content .hero-cta {
+    animation-delay: 0.8s;
+}
+
+.social-icons {
+    animation-delay: 1s;
+}
+
+.hero-content .social-links {
+    animation-delay: 1s;
+}
+
+.profile-text {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 1.6s forwards;
+}
+
+/* Animation Delays */
+[data-delay="100"] {
+    animation-delay: 0.1s;
+}
+
+[data-delay="200"] {
+    animation-delay: 0.2s;
+}
+
+[data-delay="300"] {
+    animation-delay: 0.3s;
+}
+
+[data-delay="400"] {
+    animation-delay: 0.4s;
+}
+
+[data-delay="500"] {
+    animation-delay: 0.5s;
+}
+
+/* Media Queries for Animations */
+@media (prefers-reduced-motion) {
+
+    .animate-up,
+    .animate-left,
+    .animate-right,
+    .hero-image,
+    .shape-1,
+    .shape-2 {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+/* Project Slide Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.project-slide:target .project-slide-content {
+    animation: fadeInScale 0.4s ease forwards;
+}
+
+.project-slide:target .project-slide-image {
+    animation: slideInUp 0.5s ease forwards;
+}
+
+.project-slide:target .project-slide-details {
+    animation: slideInUp 0.5s ease 0.1s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
