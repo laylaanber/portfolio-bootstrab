@@ -11,10 +11,18 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: var(--dark-color);
+    color: #333;
+    line-height: 1.7;
+    font-size: 16px;
     overflow-x: hidden;
     padding-top: 70px;
     /* Add padding to account for fixed navbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
 }
 
 a {
@@ -29,9 +37,10 @@ a:hover {
 
 .section-title {
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     position: relative;
     padding-bottom: 0.5rem;
+    font-size: 2.2rem;
 }
 
 .section-title::after {
@@ -50,11 +59,23 @@ a:hover {
     margin-bottom: 2rem;
 }
 
+p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
 .btn {
-    padding: 0.7rem 1.5rem;
+    padding: 0.6rem 1.5rem;
     border-radius: 30px;
     font-weight: 500;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-lg {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
 }
 
 .btn-primary {
@@ -238,6 +259,19 @@ a:hover {
     display: flex;
 }
 
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+.social-link-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+}
+
 .social-icon {
     position: relative;
     z-index: 5;
@@ -354,6 +388,7 @@ a:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     margin-bottom: 2rem;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -510,6 +545,20 @@ a:hover {
     width: 20px;
 }
 
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background: var(--gradient);
+    color: white;
+    font-size: 1rem;
+}
+
 .social-links {
     display: flex;
     margin-top: 2rem;
@@ -546,7 +595,7 @@ a:hover {
     border-color: var(--primary-color);
 }
 
-.contact-form textarea.form-control {
+contact-form textarea.form-control {
     border-radius: 15px;
 }
 
@@ -773,8 +822,8 @@ a:hover {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(5px); /* Reduced from 10px to 5px */
     border-radius: 15px;
     padding: 15px 0;
     z-index: 20;
@@ -970,6 +1019,25 @@ a:hover {
 }
 
 @media (max-width: 767px) {
+    section {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    /* Fix container overlap issues */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Fix timeline alignment */
+    .timeline-wrapper {
+        padding-left: 20px;
+    }
+
     .profile-wrapper {
         width: 260px;
         height: 260px;
@@ -1085,4 +1153,17 @@ a:hover {
         position: relative;
         z-index: 5;
     }
+}
+
+/* Add these consistency fixes */
+
+/* Consistent section spacing */
+section {
+    padding: 5rem 0;
+}
+
+/* Improve card consistency */
+.card, .skill-card, .project-card, .interest-card {
+    height: 100%;
+    transition: all 0.3s ease;
 }

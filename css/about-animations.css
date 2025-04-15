@@ -218,15 +218,23 @@
 
 /* Skill progress bars with CSS-only animation */
 .skill-progress {
-    height: 10px;
+    height: 8px;
     border-radius: 30px;
     margin-bottom: 25px;
     background-color: #f0f0f0;
     overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
 .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     transition: width 1.5s ease-in-out;
+    background: var(--gradient);
+    border-radius: 30px;
 }
 
 .progress-bar[data-width="95%"] {
@@ -269,6 +277,19 @@
 }
 
 /* Fixed skill circles */
+.skill-card {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .skill-circle {
     width: 120px;
     height: 120px;
@@ -279,6 +300,7 @@
     justify-content: center;
     position: relative;
     background-color: #f0f0f0;
+    margin-bottom: 1rem;
 }
 
 .skill-circle::before {
@@ -324,7 +346,7 @@
 
 .skill-percentage-text {
     position: relative;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--primary-color);
     z-index: 2;
@@ -364,6 +386,7 @@
 }
 
 .timeline-item {
+    margin-bottom: 2rem;
     position: relative;
     padding-bottom: 40px;
     opacity: 0;
@@ -382,6 +405,40 @@
 
 .timeline-item:nth-child(3) {
     --index: 3;
+}
+
+.timeline-content {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.timeline-date {
+    margin: 0.8rem 0;
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #777;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 0.5rem;
+}
+
+.timeline-tags {
+    margin-top: 1rem;
+}
+
+.timeline-tags .badge {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-weight: 500;
 }
 
 @keyframes slide-in-item {
@@ -428,38 +485,6 @@
     background: linear-gradient(135deg, #fd79a8, #e84393);
 }
 
-.timeline-content {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.timeline-date {
-    display: inline-block;
-    margin: 10px 0;
-    font-size: 0.9rem;
-    color: #777;
-    border-left: 3px solid var(--primary-color);
-    padding-left: 10px;
-}
-
-.timeline-tags {
-    margin-top: 15px;
-}
-
-.timeline-tags .badge {
-    margin-right: 5px;
-    padding: 6px 12px;
-    font-weight: 500;
-}
-
 /* Interest Cards */
 .interest-card {
     background: white;
@@ -494,8 +519,9 @@
 
 /* CTA Section */
 .cta-section {
-    background: linear-gradient(rgba(108, 92, 231, 0.9), rgba(162, 155, 254, 0.9)), 
+    background: linear-gradient(rgba(108, 92, 231, 0.8), rgba(162, 155, 254, 0.8)), 
                 url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    /* Reduced from 0.9 to 0.8 for both colors */
     background-size: cover;
     background-position: center;
     color: white;
@@ -532,16 +558,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(108, 92, 231, 0.85);
+    background: rgba(108, 92, 231, 0.75); /* Reduced from 0.85 to 0.75 */
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.4s ease;
-}
-
-.project-card:hover .project-overlay {
-    opacity: 1;
 }
 
 /* Project slide animations */
@@ -911,12 +933,8 @@
 }
 
 .map-container iframe {
-    filter: grayscale(1);
+    filter: grayscale(0.7); /* Reduced from 1 to 0.7 for less grayscale effect */
     transition: filter 0.5s ease;
-}
-
-.map-container:hover iframe {
-    filter: grayscale(0);
 }
 
 .map-overlay {
@@ -925,7 +943,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(108, 92, 231, 0.05);
+    background: rgba(108, 92, 231, 0.02); /* Reduced from 0.05 to 0.02 */
     pointer-events: none;
 }
 
@@ -972,4 +990,208 @@
     .map-container {
         height: 250px;
     }
+}
+
+/* Enhanced Project Modals */
+.project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.25s, opacity 0.25s ease;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.project-modal:target {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Slightly more transparent */
+    backdrop-filter: blur(1.5px); /* Reduced from 3px to 1.5px */
+    z-index: -1;
+}
+
+.modal-container {
+    width: 100%;
+    max-width: 1000px;
+    max-height: 90vh;
+    margin: auto;
+    transition: transform 0.3s ease;
+    transform: scale(0.95);
+    position: relative;
+}
+
+.project-modal:target .modal-container {
+    transform: scale(1);
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(90vh - 30px);
+}
+
+.modal-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+.modal-title {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+    color: white;
+}
+
+.modal-body {
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 15px 25px;
+    border-top: 1px solid #eee;
+    background-color: #f8f9fa;
+}
+
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.project-image-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.meta-item {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.section-subtitle::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: var(--gradient);
+    border-radius: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 767px) {
+    .project-navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-body {
+        padding: 20px 15px;
+    }
+    
+    .modal-close {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Animations for modal entrance */
+@keyframes modal-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modal-slide-in {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.project-modal:target .modal-backdrop {
+    animation: modal-fade-in 0.3s ease forwards;
+}
+
+.project-modal:target .modal-content {
+    animation: modal-slide-in 0.4s ease forwards;
 }
